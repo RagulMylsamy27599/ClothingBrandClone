@@ -1,0 +1,52 @@
+<!-- Topics:
+1. Hello world from HTML, JS, React
+2. How to create an element and render it in React
+3. How to add siblings to an element using react.createElement -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+
+<body>
+
+    <!-- Hello world from HTML -->
+    <div id="htmlHelloWorld">
+        <h1>Hello world from HTML</h1>
+    </div>
+
+    <div id="JShelloWorld"></div>
+
+    <div id="root"></div>
+
+    <!-- Hello world from JS -->
+    <script>
+        const parent = document.getElementById("JShelloWorld");
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello from JavaScript";
+        parent.appendChild(heading)
+    </script>
+
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+
+    <!-- React Coded file should be below the imported react files -->
+    <!-- Hello world from React -->
+    <script>
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        const reactHead = React.createElement("h1", { id: "ReactHeader" }, ["Hello from React JS", React.createElement("h1", { id: "ReactHeader2" }, "Hello from React JS - 2")]);
+
+        root.render(reactHead);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "reactcode",
+  "version": "1.0.0",
+  "description": "Namaste React Code",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RagulMylsamy27599/ReactCode.git"
+  },
+  "author": "Ragul Mylsamy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RagulMylsamy27599/ReactCode/issues"
+  },
+  "homepage": "https://github.com/RagulMylsamy27599/ReactCode#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

@@ -1,0 +1,50 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#parentContainer {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 236, 131);
+}
+
+#logoImg {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 100px;
+    padding: 5px;
+}
+
+#searchBar {
+    border-width: 1px;
+    border-color: brown;
+    border-radius: 5px;
+    width: 50%;
+    height: 30px;
+    padding-left: 15px;
+    ;
+}
+
+#searchBarContainer {
+    align-items: center;
+    height: 90px;
+    display: flex;
+    padding-left: 75px;
+    width: 100%;
+}
+
+#searchImg {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    padding-left: 10px;
+}
+
+#profileImg {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    padding-right: 50px;
+}

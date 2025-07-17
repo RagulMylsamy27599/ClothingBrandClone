@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Namaste React Code",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel Assignment3_LayingTheFoundation/index.html",
+    "build": "parcel build Assignment3_LayingTheFoundation/index.html"
   },
   "repository": {
     "type": "git",

@@ -4,8 +4,8 @@
   "description": "Namaste React Code",
   "scripts": {
     "test": "jest",
-    "start": "parcel Assignment3_LayingTheFoundation/index.html",
-    "build": "parcel build Assignment3_LayingTheFoundation/index.html"
+    "start": "parcel Assignment4_OurOwnApp/index.html",
+    "build": "parcel build Assignment4_OurOwnApp/index.html"
   },
   "repository": {
     "type": "git",

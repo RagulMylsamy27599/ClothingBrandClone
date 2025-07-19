@@ -80,14 +80,44 @@ const UserIcon = () => {
     )
 }
 
+const data = [{
+    id: 1,
+    name: "Kick Buttowski",
+    age: 10,
+    description: "A daredevil kid who loves to perform stunts and adventures."
+}, {
+    id: 2,
+    name: "Gunther Magnuson",
+    age: 11,
+    description: "Kick's best friend who is always ready for an adventure."
+}]
 
+const Label = ({description}) => {
+    return (
+        <div className="label">
+            <h3>{description}</h3>
+        </div>
+    )
+}
+
+
+function cb(obj){
+    return (
+        <Label description={obj.description}/>
+    )
+}
 const HeaderComponent = () => {
     return (
+        <>
         <div id="parentContainer">
             <LogoComponent/>
             <SearchBarComponent/>
             <UserIcon/>
+
         </div>
+        { data.map(cb)}
+        </>
+        
     )
 }
 root.render(<HeaderComponent />);

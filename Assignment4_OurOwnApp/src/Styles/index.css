@@ -52,7 +52,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     padding-top: 20px;
-    padding-left: 50px;
+    justify-content: center;
 }
 
 #imgDressCard{
@@ -75,8 +75,15 @@ input {
     margin: 5px;
     font-size: 13px;
 }
+
+#mrp{
+    text-decoration: line-through;
+}
 #brand{
     color: rgb(97, 97, 97);
+}
+#discountPercentage{
+    color: rgb(245, 159, 173);
 }
 #productName{
      font-size: 15px;

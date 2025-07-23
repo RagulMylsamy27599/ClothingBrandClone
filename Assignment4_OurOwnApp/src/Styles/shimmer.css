@@ -1,0 +1,15 @@
+#shimmerMain {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+
+.shimmer-card {
+  background: #f6f7f8;
+  border-radius: 8px;
+  margin: 10px;
+  width: 20%;
+  height: 40Vh;
+}

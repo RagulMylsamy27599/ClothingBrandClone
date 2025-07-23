@@ -1,25 +1,31 @@
 import { useState } from "react"
 import { FILTER_LOGO as fl } from "../../Utils/constant"
-import allJackets from "../../Utils/data.json"
-
 let checkedFilterData = [];
 let tempFilterData = [];
 
-
-const filterDataSet = new Set();
-allJackets.forEach((jacket) => {
-    filterDataSet.add(jacket.brand);
-});
+let filterData = [];
 
 
-const filterData = [...filterDataSet];
 
-const Filter = ({jackets, setJackets}) => {
+
+
+const Filter = ({ allJackets, jackets, setJackets }) => {
+
+
+    const filterDataSet = new Set();
+    allJackets.forEach((jacket) => {
+        filterDataSet.add(jacket?.fnlColorVariantData?.brandName);
+    });
+    filterData = [...filterDataSet];
+
+
     const [isFilterVisible, setIsFilterVisible] = useState(false);
+
+
     return (
         <div id="filterContainer">
             <FilterBtn isFilterVisible={isFilterVisible} setIsFilterVisible={setIsFilterVisible} />
-            <FilterDialogContainer isFilterVisible={isFilterVisible} setIsFilterVisible={setIsFilterVisible} jackets={jackets} setJackets={setJackets} />
+            <FilterDialogContainer allJackets={allJackets} filterData = {filterData} isFilterVisible={isFilterVisible} setIsFilterVisible={setIsFilterVisible} jackets={jackets} setJackets={setJackets} />
         </div>
     )
 }
@@ -38,7 +44,7 @@ const FilterBtn = ({ isFilterVisible, setIsFilterVisible }) => {
     )
 }
 
-const FilterDialogContainer = ({ isFilterVisible, setIsFilterVisible, jackets, setJackets}) => {
+const FilterDialogContainer = ({ allJackets, filterData, isFilterVisible, setIsFilterVisible, jackets, setJackets }) => {
     return (
         <div id="filterDialogContainer" style={{ display: isFilterVisible ? "block" : "none" }}>
             <div id="filterList">
@@ -49,15 +55,19 @@ const FilterDialogContainer = ({ isFilterVisible, setIsFilterVisible, jackets, s
                 }
             </div>
             <div id="filterActionbtnContainer">
-                <button className="filterActionBtn" onClick = {()=>{
+                <button className="filterActionBtn" onClick={() => {          
                     checkedFilterData = tempFilterData;
                     setIsFilterVisible(false);
-                    const updatedData = allJackets.filter((item)=>{
-                        return checkedFilterData.includes(item.brand);
+                    if(checkedFilterData.length === 0){
+                        setJackets(allJackets);
+                        return;
+                    }
+                    const updatedData = allJackets.filter((item) => {
+                        return checkedFilterData.includes(item?.fnlColorVariantData?.brandName);
                     })
                     setJackets(updatedData);
                 }}>Apply filter</button>
-                <button className="filterActionBtn" onClick={()=>{
+                <button className="filterActionBtn" onClick={() => {
                     setIsFilterVisible(false)
                 }}>Cancel</button>
             </div>
@@ -69,14 +79,14 @@ const FilterDialogContainer = ({ isFilterVisible, setIsFilterVisible, jackets, s
 
 
 
-const FilterData = ({ brandName}) => {
+const FilterData = ({ brandName }) => {
 
     const onCheckBoxOnClick = (event) => {
-        if(event.target.checked)
-        tempFilterData.push(event.target.id);
-    else{
-        tempFilterData = tempFilterData.filter((item)=>item!=event.target.id);
-    }
+        if (event.target.checked)
+            tempFilterData.push(event.target.id);
+        else {
+            tempFilterData = tempFilterData.filter((item) => item != event.target.id);
+        }
     }
     return (
         <div id="checkBoxContainer">

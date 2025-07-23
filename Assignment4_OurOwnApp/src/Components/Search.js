@@ -1,6 +1,3 @@
-import allJackets from "../../Utils/data.json"
-
-
 
 const debounce = (cb, delay) => {
     let timer;
@@ -16,13 +13,13 @@ const debounce = (cb, delay) => {
 
 
 
-const Search = ({ setJackets }) => {
+const Search = ({ allJackets, setJackets }) => {
     const seachInput = (event) => {
         if (event.target.value.trim() == "") { 
             setJackets(allJackets);
         } else {
             const updatedData = allJackets.filter((jacket) => {
-                return jacket.brand.toLowerCase().includes(event.target.value.toLowerCase());
+                return jacket?.fnlColorVariantData?.brandName.toLowerCase().includes(event.target.value.toLowerCase());
             })
             setJackets(updatedData);
         }

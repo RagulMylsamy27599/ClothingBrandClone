@@ -1,3 +1,6 @@
+import { APP_LOGO } from "../../Utils/constant";
+
+
 const Header = () => {
     return (
         <div id="headerContainer">
@@ -13,7 +16,7 @@ const Header = () => {
 const Logo = () => {
     return (
         <div id="logoContainer">
-            <img id="logo" alt="App-logo" src="https://tse1.mm.bing.net/th/id/OIP.h1pIs__HFLp1I5ZVqmKX_AHaDt?pid=Api&P=0&h=180" />
+            <img id="logo" alt="App-logo" src={APP_LOGO} />
         </div>
     )
 }

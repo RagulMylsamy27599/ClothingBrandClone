@@ -1,0 +1,2 @@
+export const APP_LOGO = "https://tse1.mm.bing.net/th/id/OIP.h1pIs__HFLp1I5ZVqmKX_AHaDt?pid=Api&P=0&h=180";
+export const FILTER_LOGO = "https://images.icon-icons.com/1993/PNG/512/filter_filters_funnel_list_navigation_sort_sorting_icon_123212.png";

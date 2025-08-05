@@ -1,0 +1,43 @@
+/* Header-CSS */
+#headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(236, 245, 253, 0.541);
+}
+
+#logo {
+    width: 100px;
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+#categoriesListContainer {
+    display: flex;
+    list-style: none;
+}
+
+#categoriesListContainer>li {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+#categoriesListContainer>li:hover {
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: rgba(186, 177, 199, 0.206);
+    border-radius: 7px;
+}
+
+#actionsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#actionsContainer>div>img {
+    width: 25px;
+    margin: 20px;
+    margin-top: 25px;
+    cursor: pointer;
+}

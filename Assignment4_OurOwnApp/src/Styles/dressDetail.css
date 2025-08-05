@@ -1,0 +1,107 @@
+.dressDetailContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10%;
+    margin-top: 100px;
+}
+
+.dressDetailImg {
+    border: 1px solid rgb(200, 178, 178);
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.dressDetailBrand {
+    color: #1a1a1a;
+}
+
+.dressName {
+    color: #0d3b66;
+}
+
+.dressRatingContainer {
+    color: #222;
+}
+
+.ratingPoints {
+    padding: 5px 10px;
+    background-color: rgba(90, 250, 138, 0.581);
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+.price {
+    color: #d32f2f;
+}
+
+.wasPriceContainer {
+    color: #999999;
+}
+
+.wasPrice {
+    text-decoration: line-through;
+}
+
+.discountPercentage {
+    padding-left: 10px;
+    color: #0d3b66;
+}
+
+.selectSizeTitle {
+    color: #444;
+}
+
+.checkSizeChartLink {
+    color: #0d47a1;
+    cursor: pointer;
+}
+
+.sizesContainer {
+    display: flex;
+    list-style: none;
+}
+
+.sizesContainer>li {
+    background-color: rgba(131, 122, 255, 0.386);
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.selectSizeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailBtn {
+    display: block;
+    width: 20vw;
+    padding: 20px 0px;
+    margin-top: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.addToCartBtn {
+    background-color: white;
+    border: 1px solid #0d47a1;
+    color: #0d47a1;
+}
+
+.addToWishlistBtn {
+    background-color: #0d47a1;
+    border: 1px solid white;
+    color: white;
+}

@@ -1,0 +1,21 @@
+#searchBox {
+    border: 1px solid #2c6eb5a7;
+    border-radius: 3px;
+    margin-left: 40%;
+    height: 35px;
+    width: 20%;
+    margin-top: 30px;
+    padding-left: 10px;
+}
+
+
+#searchBox::placeholder {
+    color: #bcbcbcc8;
+    ;
+}
+
+#searchBox:focus {
+    border: 1px solid #8c8c8c;
+    box-shadow: 0 0 5px rgba(149, 149, 149, 0.391);
+    background-color: rgba(236, 245, 253, 0.541);
+}

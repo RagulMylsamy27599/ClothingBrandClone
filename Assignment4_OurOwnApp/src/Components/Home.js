@@ -1,4 +1,7 @@
 import Carousal from "./Carousal";
+import useOnlineStatus from "../../Utils/useOnlineStatus";
+import Offline from "./Offline";
+
 import {
   CAROUSAL_IMAGES_CLOTH_OFFERS,
   CAROUSAL_IMAGES_CARD_OFFERS,
@@ -7,6 +10,8 @@ import {
 } from "../../Utils/constant";
 import "../Styles/Home.css";
 const Home = () => {
+  const { onlineStatus } = useOnlineStatus();
+  if (!onlineStatus) return <Offline />;
   return (
     <div>
       <Carousal carousalImages={CAROUSAL_IMAGES_CLOTH_OFFERS} />

@@ -1,4 +1,4 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -6,7 +6,10 @@ import Header from "./Header";
 import Content from "./Content";
 import DressDetail from "./DressDetail";
 import Error from "./Error";
-import Home from "./Home";
+
+const Home = lazy(() => {
+  return import("./Home");
+});
 
 const App = () => {
   return (
@@ -25,7 +28,11 @@ const paths = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<h3>Loading..</h3>}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "/:gender",

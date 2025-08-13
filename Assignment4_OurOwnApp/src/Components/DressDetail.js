@@ -1,32 +1,20 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DRESS_DETAIL_API_URL } from "../../Utils/constant";
 import Shimmer from "./Shimmer";
 import "../Styles/dressDetail.css";
 import { SIZES } from "../../Utils/constant";
+import useFetchItemDetail from "../../Utils/useFetchItemDetails";
+import useOnlineStatus from "../../Utils/useOnlineStatus";
+import Offline from "./Offline";
 
 const DressDetail = () => {
   const { dressID } = useParams();
-  const [dressInfo, setDressInfo] = useState({});
-  const [isLoading, setIsloading] = useState(true);
-
-  useEffect(() => {
-    const fetchDressDetails = async () => {
-      try {
-        setIsloading(true);
-        const data = await fetch(`${DRESS_DETAIL_API_URL}${dressID}`);
-        if (data.ok) {
-          const jsonData = await data.json();
-          setDressInfo(jsonData);
-          setIsloading(false);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchDressDetails();
-  }, []);
-
+  const { dressInfo, isLoading } = useFetchItemDetail(
+    dressID,
+    DRESS_DETAIL_API_URL
+  );
+  const { onlineStatus } = useOnlineStatus();
+  if (!onlineStatus) return <Offline />;
   if (isLoading) {
     return <Shimmer />;
   }

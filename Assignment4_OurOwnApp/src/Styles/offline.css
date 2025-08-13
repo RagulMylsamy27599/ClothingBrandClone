@@ -1,0 +1,13 @@
+.offlineContainer {
+    background-color: rgba(254, 133, 133, 0.294);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.poop {
+    height: 50px;
+}

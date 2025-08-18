@@ -4,8 +4,8 @@
   "description": "Namaste React Code",
   "scripts": {
     "test": "jest",
-    "start": "parcel Assignment4_OurOwnApp/index.html",
-    "build": "parcel build Assignment4_OurOwnApp/index.html"
+    "start": "parcel AJIOWithTailwind/index.html",
+    "build": "parcel build AJIOWithTailwind/index.html"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,11 @@
     "parcel": "^2.15.4"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^6.30.1"
+    "react-router-dom": "^6.30.1",
+    "tailwind-scrollbar": "^4.0.2",
+    "tailwindcss": "^4.1.11"
   }
 }

@@ -1,9 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FILTER_LOGO as fl } from "../../Utils/constant";
-
-let checkedFilterData = [];
-let tempFilterData = [];
-let filterData = [];
 
 const Filter = ({
   allJackets,
@@ -16,7 +12,7 @@ const Filter = ({
   allJackets.forEach((jacket) => {
     filterDataSet.add(jacket?.fnlColorVariantData?.brandName);
   });
-  filterData = [...filterDataSet];
+  const filterData = [...filterDataSet];
 
   return (
     <div className="flex flex-col relative">
@@ -63,22 +59,21 @@ const FilterDialogContainer = ({
   filterData,
   isFilterVisible,
   setIsFilterVisible,
-  jackets,
   setJackets,
 }) => {
+  const [filterUpdateList, setFilterUpdateList] = useState([]);
   if (!isFilterVisible) {
     return;
   }
   const applyOnClick = (e) => {
     e.stopPropagation();
-    checkedFilterData = tempFilterData;
     setIsFilterVisible(false);
-    if (checkedFilterData.length === 0) {
+    if (filterUpdateList.length === 0) {
       setJackets(allJackets);
       return;
     }
     const updatedData = allJackets.filter((item) => {
-      return checkedFilterData.includes(item?.fnlColorVariantData?.brandName);
+      return filterUpdateList.includes(item?.fnlColorVariantData?.brandName);
     });
     setJackets(updatedData);
   };
@@ -92,7 +87,15 @@ const FilterDialogContainer = ({
     >
       <div className="overflow-auto">
         {filterData.map((item) => {
-          return <FilterData key={item} brandName={item} />;
+          return (
+            <FilterData
+              key={item}
+              brandName={item}
+              checked={filterUpdateList.includes(item)}
+              setFilterUpdateList={setFilterUpdateList}
+              filterUpdateList={filterUpdateList}
+            />
+          );
         })}
       </div>
       <div className="flex flex-row mb-4 mt-7 justify-evenly items-center">
@@ -115,11 +118,21 @@ const FilterDialogContainer = ({
   );
 };
 
-const FilterData = ({ brandName }) => {
+const FilterData = ({
+  brandName,
+  checked,
+  filterUpdateList,
+  setFilterUpdateList,
+}) => {
   const onCheckBoxOnClick = (event) => {
-    if (event.target.checked) tempFilterData.push(event.target.id);
+    if (event.target.checked)
+      setFilterUpdateList([...filterUpdateList, event.target.id]);
     else {
-      tempFilterData = tempFilterData.filter((item) => item != event.target.id);
+      let tempFilterData = [];
+      tempFilterData = filterUpdateList.filter(
+        (item) => item != event.target.id
+      );
+      setFilterUpdateList(tempFilterData);
     }
   };
   return (
@@ -128,6 +141,7 @@ const FilterData = ({ brandName }) => {
         className="mx-2.5"
         type="CheckBox"
         id={brandName}
+        checked={checked}
         onChange={onCheckBoxOnClick}
       />
       <label className="w-max mr-20" htmlFor={brandName}>

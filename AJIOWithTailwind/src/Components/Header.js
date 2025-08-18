@@ -4,7 +4,7 @@ import {
   PROFILE_ICON,
   CART_ICON,
 } from "../../Utils/constant";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -27,23 +27,35 @@ const Logo = () => {
 };
 
 const Categories = () => {
+  const activeStyle = ({ isActive }) => {
+    if (isActive) {
+      return "px-4 bg-[#2F4254] mx-5 py-2 rounded-md text-white";
+    } else {
+      return "px-4 hover:bg-indigo-100 mx-5 py-2 rounded-md";
+    }
+  };
   return (
     <div>
       <ul className="flex">
-        <li className="px-4 hover:bg-indigo-100 mx-5 py-1 rounded-md">
-          <Link to={"/men"}>Men</Link>
+        <li className="flex">
+          <NavLink to="/men" className={activeStyle}>
+            Men
+          </NavLink>
         </li>
-        <li className="px-4 hover:bg-indigo-100 mx-5 py-1 rounded-md">
-          <Link to={"/women"}>Women</Link>
+        <li className="flex">
+          <NavLink to={"/women"} className={activeStyle}>
+            Women
+          </NavLink>
         </li>
-        <li className="px-4 hover:bg-indigo-100 mx-5 py-1 rounded-md">
-          <Link to={"/kids"}>Kids</Link>
+        <li className="flex">
+          <NavLink to={"/kids"} className={activeStyle}>
+            Kids
+          </NavLink>
         </li>
-        <li className="px-4 hover:bg-indigo-100 mx-5 py-1 rounded-md">
-          <Link to={"/home"}>Home</Link>
-        </li>
-        <li className="px-4 hover:bg-indigo-100 mx-5 py-1 rounded-md">
-          <Link to={"/beauty"}>Beauty</Link>
+        <li className="flex">
+          <NavLink to={"/beauty"} className={activeStyle}>
+            Beauty
+          </NavLink>
         </li>
       </ul>
     </div>

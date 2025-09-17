@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FILTER_LOGO as fl } from "../../Utils/constant";
+import UpdateDressContext from "../../Utils/updateDressContext";
 
-const Filter = ({
-  allJackets,
-  jackets,
-  setJackets,
-  isFilterVisible,
-  setIsFilterVisible,
-}) => {
+const Filter = ({ allJackets, isFilterVisible, setIsFilterVisible }) => {
+  useEffect(() => {
+    const escapeClick = (e) => {
+      if (e?.key?.toUpperCase() === "ESCAPE") {
+        setIsFilterVisible(false);
+      }
+    };
+    window.addEventListener("keydown", escapeClick);
+    return () => {
+      window.removeEventListener("keydown", escapeClick);
+    };
+  }, []);
   const filterDataSet = new Set();
   allJackets.forEach((jacket) => {
     filterDataSet.add(jacket?.fnlColorVariantData?.brandName);
@@ -25,8 +31,6 @@ const Filter = ({
         filterData={filterData}
         isFilterVisible={isFilterVisible}
         setIsFilterVisible={setIsFilterVisible}
-        jackets={jackets}
-        setJackets={setJackets}
       />
     </div>
   );
@@ -59,8 +63,8 @@ const FilterDialogContainer = ({
   filterData,
   isFilterVisible,
   setIsFilterVisible,
-  setJackets,
 }) => {
+  const setJackets = useContext(UpdateDressContext);
   const [filterUpdateList, setFilterUpdateList] = useState([]);
   if (!isFilterVisible) {
     return;

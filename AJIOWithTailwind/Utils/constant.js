@@ -15,6 +15,8 @@ export const FETCH_API_URL = "https://www.ajio.com/api/category/";
 export const DRESS_DETAIL_API_URL =
   "https://www.ajio.com/api/p/recentlyViewed/";
 
+export const SIMILAR_STYLE_API_URL = "https://www.ajio.com/api/p/similar/";
+
 //CONSTANTS
 export const SIZES = ["XS", "S", "M", "L", "XL"];
 export const MEN_CATEGORY_CODE = "830216011";

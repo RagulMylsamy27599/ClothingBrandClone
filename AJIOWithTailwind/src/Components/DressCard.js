@@ -30,4 +30,17 @@ const DressCards = ({ data, gender }) => {
   );
 };
 
+export const BestSellerDressCard = (DressCard) => {
+  return (props) => {
+    return (
+      <div className="flex flex-col relative cursor-pointer">
+        <p className="text-md absolute text-white mt-10 top-2.5 px-2.5 py-1.5 bg-blue-950/50 rounded left-12">
+          Best Seller
+        </p>
+        <DressCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default DressCards;

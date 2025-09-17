@@ -6,6 +6,12 @@ import Header from "./Header";
 import Content from "./Content";
 import DressDetail from "./DressDetail";
 import Error from "./Error";
+import ResDetail from "./ResDetail";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Provider } from "react-redux";
+import Appstore from "../../Utils/AppStore";
+import CartContent from "./CartContent";
 
 const Home = lazy(() => {
   return import("./Home");
@@ -13,11 +19,13 @@ const Home = lazy(() => {
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Outlet />
-      {/* <Footer /> */}
-    </div>
+    <Provider store={Appstore}>
+      <div>
+        <Header />
+        <Outlet />
+        {/* <Footer /> */}
+      </div>
+    </Provider>
   );
 };
 
@@ -41,6 +49,14 @@ const paths = createBrowserRouter([
       {
         path: "/:gender/:dressID",
         element: <DressDetail />,
+      },
+      {
+        path: "/Swiggy",
+        element: <ResDetail />,
+      },
+      {
+        path: "/CartContent",
+        element: <CartContent />,
       },
     ],
     errorElement: <Error />,

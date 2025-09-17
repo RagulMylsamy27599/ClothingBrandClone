@@ -17,7 +17,7 @@ const useFetchItemDetail = (dressID, url) => {
       }
     };
     fetchDressDetails();
-  }, [dressID]);
+  }, [dressID, url]);
 
   return { dressInfo, isLoading };
 };

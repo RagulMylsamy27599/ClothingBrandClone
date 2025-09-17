@@ -7,3 +7,13 @@ body {
     font-family: "Roboto Flex", "Sansation", sans-serif;
     margin: 0;
 }
+
+/* inside your global CSS file */
+.slick-prev:before,
+.slick-next:before {
+    color: #2f4254a8;
+    /* change arrow color */
+    font-size: 30px;
+    margin-right: 50px;
+    /* make them bigger if you want */
+}
